@@ -22,7 +22,7 @@ import java.util.Set;
 /**
  * En klass för att måla upp och redigera klientens användargränssnitt.
  * 
- * @author Kristofer Svensson, Amar Sadikovic, Alessandro Crnomat
+ * @author Kristofer Svensson, Amar Sadikovic
  *
  */
 public class ClientGUI extends JPanel implements ActionListener, ListSelectionListener {
@@ -38,14 +38,15 @@ public class ClientGUI extends JPanel implements ActionListener, ListSelectionLi
 	private JButton btnDisconnect = new JButton("Disconnect");
 	private JButton btnConnect = new JButton("Connect");
 	private JFrame frame;
-	private JLabel lblRight = new JLabel("Right");
+	//private JLabel lblRight = new JLabel("Right");
 	private JFileChooser fc = new JFileChooser();
 	private FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & GIF & PNG Images", "jpg", "gif", "png");
 	private JTextPane tpOutput = new JTextPane();
 	private StyledDocument doc = tpOutput.getStyledDocument();
 	private JScrollPane spOutput = new JScrollPane(tpOutput);
-	private JTextArea taInput = new JTextArea("Input");
-	private JTextArea taNameInput = new JTextArea("Pm");
+	//private JTextArea taInput = new JTextArea("Input");
+	private JTextArea taNameInput = new JTextArea();
+	private JTextField taInput = new JTextField();
 	private JScrollPane spUsers;
 	private JScrollPane spInput = new JScrollPane(taInput);
 	private JScrollPane spNameInput = new JScrollPane(taNameInput);
@@ -58,7 +59,7 @@ public class ClientGUI extends JPanel implements ActionListener, ListSelectionLi
                 fc.setCurrentDirectory(new File(System.getProperty("user.home")));
             }
         });
-		tpOutput.setText("Chatprogram - skrivet av Kristofer Svensson, Amar Sadikovic och Alessandro Crnomat");
+		tpOutput.setText("Chatprogram - skrivet av Kristofer Svensson och Amar Sadikovic");
 		SimpleAttributeSet keyWord = new SimpleAttributeSet();
 		StyleConstants.setForeground(keyWord, Color.RED);
 		StyleConstants.setBackground(keyWord, Color.YELLOW);
@@ -83,11 +84,11 @@ public class ClientGUI extends JPanel implements ActionListener, ListSelectionLi
 		spOutput.setPreferredSize(new Dimension(600, 50));
 		spOutput.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		spInput.setPreferredSize(new Dimension(600, 20));
-		spInput.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		//spInput.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		spNameInput.setPreferredSize(new Dimension(600, 20));
 		spNameInput.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		taInput.setLineWrap(true);
-		taInput.setWrapStyleWord(true);
+		//taInput.setLineWrap(true);
+		//taInput.setWrapStyleWord(true);
 		/*
 		 * Alla grafiska element läggs in i respektive paneler.
 		 */
@@ -102,7 +103,7 @@ public class ClientGUI extends JPanel implements ActionListener, ListSelectionLi
 		pnlSouthEast.add(btnConnect, BorderLayout.EAST);
 		pnlSouthEast.add(btnDisconnect, BorderLayout.EAST);
 		pnlCenter.add(spOutput, BorderLayout.CENTER);
-		lblRight.setPreferredSize(new Dimension(185, 600));
+		//lblRight.setPreferredSize(new Dimension(185, 600));
 		pnlCenterEast.add(spUsers, BorderLayout.EAST);
 		/*
 		 * Knappar som är inaktiverade från början.
@@ -123,12 +124,17 @@ public class ClientGUI extends JPanel implements ActionListener, ListSelectionLi
 			}
 
 			public void keyPressed(KeyEvent e) {
+				/*
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 					btnSkicka.doClick();
 				}
+				*/
 			}
 
 			public void keyReleased(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					btnSkicka.doClick();
+				}
 			}
 		});
 	}
@@ -158,7 +164,7 @@ public class ClientGUI extends JPanel implements ActionListener, ListSelectionLi
 				controller.defineRecipients(taInput.getText(), taNameInput.getText());
 			}
 			taInput.setText(null);
-			//TODO: Flytta caret till första pos, första raden här på något sätt?
+			//taInput.setCaretPosition(0);
 		} else if (e.getSource() == btnConnect) {
             controller.connect((String) JOptionPane.showInputDialog(frame,
                     "Enter desired username.",
@@ -172,6 +178,9 @@ public class ClientGUI extends JPanel implements ActionListener, ListSelectionLi
 			controller.disconnect();
 			btnDisconnect.setEnabled(false);
 			btnConnect.setEnabled(true);
+			clearClientList();
+			showMessage("Disconnected.\n");
+
 		} else if (e.getSource() == btnBild) {
 			int returnVal = fc.showOpenDialog(this);
 			if (returnVal == JFileChooser.APPROVE_OPTION) {

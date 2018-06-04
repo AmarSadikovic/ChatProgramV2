@@ -52,12 +52,8 @@ public class Server {
      *
      * @param msg Meddelandet som ska sändas till alla klienter.
      */
-    public synchronized void broadcastMessage(Message msg) { //tog bort synchronized
-        /*ArrayList<String> recipients = msg.getRecipients();
-        for (String key : clients.getKeys()) {
-            clients.get(key).writeMessage(msg);
-        }*/
-//        System.out.println("Broadcast message method");
+    public synchronized void broadcastMessage(Message msg) { //synchronized?
+
         if (msg.getRecipients().get(0).equals("all")){
             for (String key : clients.getKeys()){
                 System.out.println("Skrev msg till user:" + key);
@@ -72,6 +68,16 @@ public class Server {
                     }
                 }
             }
+        }
+    }
+
+    public synchronized void broadcastDisconnectedClient(String clientName){
+        clients.removeClient(clientName);
+        ArrayList<String> remainingClients = new ArrayList<>();
+        remainingClients.addAll(clients.getKeys());
+        for (String key : clients.getKeys()){
+            clients.get(key).writeMessage(new Message(clientName + " Disconnected.\n", remainingClients, 1));
+            clients.get(key).writeMessage(new Message(remainingClients));
         }
     }
 
@@ -124,16 +130,11 @@ public class Server {
                     ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream());
                     String clientName = ois.readUTF();
 //                    System.out.println("Namn mottaget: " + clientName);
-//                    String clientName = (String)ois.readObject();
                     clients.addClient(new ClientInstance(clientName, clientSocket, ois, oos, Server.this));
-//                    ArrayList<String> connectedClients = new ArrayList<>();
                     connectedClients.clear();
-                    /*for (String key : clients.getKeys()) {
-                        connectedClients.add(key);
-                    }*/
                     connectedClients.addAll(clients.getKeys());
                     for (String key: clients.getKeys()){
-                        clients.get(key).writeMessage(new Message(clientName + " connected ", connectedClients, 1));
+                        clients.get(key).writeMessage(new Message(clientName + " connected \n", connectedClients, 1));
                         clients.get(key).writeMessage(new Message(connectedClients));
                         System.out.println("From client list: " + key);
                     }

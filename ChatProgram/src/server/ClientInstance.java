@@ -67,7 +67,10 @@ class ClientInstance extends Thread {
                 }
             }
         }
-        System.out.println("CLIENT DISCONNECTED");
+        System.out.println(clientName +" DISCONNECTED");
+        server.broadcastDisconnectedClient(clientName);
+
+
 //        server.broadcastMessage();
 
 //        ArrayList<String> tempToAll = new ArrayList<String>(1);
