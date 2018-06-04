@@ -27,9 +27,10 @@ class ClientInstance extends Thread {
     private Message message;
     private Server server;
 
-    public ClientInstance(String clientName, Socket socket, ObjectInputStream ois, ObjectOutputStream oos) {
+    public ClientInstance(String clientName, Socket socket, ObjectInputStream ois, ObjectOutputStream oos, Server server) {
         this.socket = socket;
         this.clientName = clientName;
+        this.server = server;
         try {
             this.ois = ois;
             this.oos = oos;
@@ -48,6 +49,7 @@ class ClientInstance extends Thread {
                 switch (message.getType()) {
                     // case 1 är standard textmeddelande.
                     case 1:
+                        System.out.println("ClientInstance tog emot msg typ 1");
                         server.broadcastMessage(message);
                         break;
                     // case 2 är bildmeddelande.
@@ -65,6 +67,9 @@ class ClientInstance extends Thread {
                 }
             }
         }
+        System.out.println("CLIENT DISCONNECTED");
+//        server.broadcastMessage();
+
 //        ArrayList<String> tempToAll = new ArrayList<String>(1);
 //        tempToAll.add("all");
 //        server.broadcastMessage(new Message(userName + " disconnected.\n", tempToAll));
@@ -82,7 +87,6 @@ class ClientInstance extends Thread {
         try {
             oos.writeObject(msg);
             oos.flush();
-//            System.out.println("Connected msssssessage skickat: " + msg.getMsg());
             oos.reset();
         } catch (Exception e) {
             e.printStackTrace();

@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 /**
  * En klass för att måla upp serverns GUI.
  * 
- * @author Kristofer Svensson, Amar Sadikovic, Alessandro Crnomat
+ * @author Kristofer Svensson, Amar Sadikovic
  *
  */
 public class ServerGUI extends JPanel implements ActionListener {

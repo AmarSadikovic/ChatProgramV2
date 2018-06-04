@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * till samtliga anslutna klienter. Servern lagrar trådar för samtliga anslutna
  * klienter i en ArrayList, och klienternas användarnamn i en annan ArrayList.
  *
- * @author Kristofer Svensson, Amar Sadikovic, Alessandro Crnomat
+ * @author Kristofer Svensson, Amar Sadikovic
  */
 public class Server {
 
@@ -52,27 +52,24 @@ public class Server {
      *
      * @param msg Meddelandet som ska sändas till alla klienter.
      */
-    public synchronized void broadcastMessage(Message msg) {
-//        ArrayList<String> recipients = msg.getRecipients();
-//        if (msg.getRecipients().contains("all")){
-//            for (int i = 0; i < clientList.size(); i++) {
-//                if (!clientList.get(i).socket.isClosed()) {
-//                    clientList.get(i).writeMessage(msg);
-//                } else {
-//                    clientList.remove(i);
-//                    i--;
-//                }
-//            }
-//        } else {
-//        for (int i = 0; i < clients.getSize(); i++) {
-//            if (clients.getKeys[i].userName.equals(recipients.get(j))) {
-//                clientList.get(i).writeMessage(msg);
-//            }
-//        }
+    public synchronized void broadcastMessage(Message msg) { //tog bort synchronized
+        /*ArrayList<String> recipients = msg.getRecipients();
         for (String key : clients.getKeys()) {
-            for (String rec : msg.getRecipients()){
-            if (key.equals(rec)){
-                    clients.get(key).writeMessage(msg);
+            clients.get(key).writeMessage(msg);
+        }*/
+//        System.out.println("Broadcast message method");
+        if (msg.getRecipients().get(0).equals("all")){
+            for (String key : clients.getKeys()){
+                System.out.println("Skrev msg till user:" + key);
+                clients.get(key).writeMessage(msg);
+            }
+        }
+        else {
+            for (String key : clients.getKeys()) {
+                for (String rec : msg.getRecipients()) {
+                    if (key.equals(rec)) {
+                        clients.get(key).writeMessage(msg);
+                    }
                 }
             }
         }
@@ -117,7 +114,7 @@ public class Server {
      */
     private class ConnectionListener extends Thread {
         public void run() {
-            System.out.println("Server is now ready to accept connections.");
+//            System.out.println("Server is now ready to accept connections.");
             ArrayList<String> connectedClients = new ArrayList<>();
             try {
                 ServerSocket serverSocket = new ServerSocket(port);
@@ -126,9 +123,9 @@ public class Server {
                     ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream());
                     ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream());
                     String clientName = ois.readUTF();
-                    System.out.println("Namn mottaget: " + clientName);
+//                    System.out.println("Namn mottaget: " + clientName);
 //                    String clientName = (String)ois.readObject();
-                    clients.addClient(new ClientInstance(clientName, clientSocket, ois, oos));
+                    clients.addClient(new ClientInstance(clientName, clientSocket, ois, oos, Server.this));
 //                    ArrayList<String> connectedClients = new ArrayList<>();
                     connectedClients.clear();
                     /*for (String key : clients.getKeys()) {
@@ -136,7 +133,7 @@ public class Server {
                     }*/
                     connectedClients.addAll(clients.getKeys());
                     for (String key: clients.getKeys()){
-                        clients.get(key).writeMessage(new Message(clientName + " connected", connectedClients, 1));
+                        clients.get(key).writeMessage(new Message(clientName + " connected ", connectedClients, 1));
                         clients.get(key).writeMessage(new Message(connectedClients));
                         System.out.println("From client list: " + key);
                     }

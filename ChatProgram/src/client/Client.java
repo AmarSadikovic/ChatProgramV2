@@ -14,7 +14,7 @@ import java.net.Socket;
  * ImageIcon-objekt av en filsökväg, skicka information till klientens GUI
  * samt ta emot och skicka objekt via objektströmmar.
  * 
- * @author Kristofer Svensson, Amar Sadikovic, Alessandro Crnomat
+ * @author Kristofer Svensson, Amar Sadikovic
  *
  */
 public class Client {
@@ -46,7 +46,7 @@ public class Client {
 			ois = new ObjectInputStream(socket.getInputStream());
 //			System.out.println("Strömmar clientside");
 			oos.writeUTF(userName);
-			System.out.println("Namn skickat till servern: " + userName);
+//			System.out.println("Namn skickat till servern: " + userName);
 //			oos.writeObject(userName);
             oos.flush();
             new messageListener();
@@ -80,7 +80,10 @@ public class Client {
 	 */
 	public void sendMessage(Message msg) {
 		try {
+			System.out.println("client skriver till server typ" + msg.getType());
 			oos.writeObject(msg);
+			oos.flush();
+			oos.reset();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -111,7 +114,6 @@ public class Client {
 							break;
 						case 3: //Uppdatering av clientList
 							System.out.println("Fick clientlist från server");
-							//TODO: Jag tror att strömmen använder gamla clientlist trots att en ny kommer in. testa den där command
 							controller.updateClientList(message.getClientList());
 							break;
 					default:

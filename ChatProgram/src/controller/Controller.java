@@ -98,6 +98,7 @@ public class Controller {
         ArrayList<String> recipientsList = new ArrayList<>();
         if (recipients.equals("")){
             recipientsList.add("all");
+			/*Vad händer om någon heter "all"*/
         } else {
             String[] parts = recipients.split(";");
             Collections.addAll(recipientsList, parts);
