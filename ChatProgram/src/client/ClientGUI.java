@@ -86,7 +86,7 @@ public class ClientGUI extends JPanel implements ActionListener, ListSelectionLi
 		spInput.setPreferredSize(new Dimension(600, 20));
 		//spInput.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		spNameInput.setPreferredSize(new Dimension(600, 20));
-		spNameInput.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+//		spNameInput.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		//taInput.setLineWrap(true);
 		//taInput.setWrapStyleWord(true);
 		/*
@@ -147,6 +147,12 @@ public class ClientGUI extends JPanel implements ActionListener, ListSelectionLi
 	 */
 	public void showImage(ImageIcon imageIcon) {
 		tpOutput.setCaretPosition(tpOutput.getText().length());
+		try {
+			doc.insertString(doc.getEndPosition().getOffset(), "\n", null);
+		} catch (BadLocationException e1) {
+			e1.printStackTrace();
+		}
+		tpOutput.setCaretPosition(tpOutput.getText().length());
 		tpOutput.insertIcon(imageIcon);
 	}
 
@@ -185,7 +191,7 @@ public class ClientGUI extends JPanel implements ActionListener, ListSelectionLi
 			int returnVal = fc.showOpenDialog(this);
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
 				File file = fc.getSelectedFile();
-				//controller.makeImage(file.getPath(), taNameInput.getText());
+				controller.makeImage(file.getPath(), taNameInput.getText());
 			}
 		}
 	}

@@ -10,23 +10,23 @@ public class Clients {
 
     private HashMap<String, ClientInstance> clientStorage = new HashMap<>();
 
-    public void addClient(ClientInstance client){
+    public synchronized void addClient(ClientInstance client){
         clientStorage.put(client.getClientName(), client);
     }
 
-    public void removeClient(String clientName){
+    public synchronized void removeClient(String clientName){
         clientStorage.remove(clientName);
     }
 
-    public int getSize(){
+    public synchronized int getSize(){
         return clientStorage.size();
     }
 
-    public ClientInstance get(String clientName){
+    public synchronized ClientInstance get(String clientName){
         return clientStorage.get(clientName);
     }
 
-    public Set<String> getKeys(){
+    public synchronized Set<String> getKeys(){
         return clientStorage.keySet();
     }
 }

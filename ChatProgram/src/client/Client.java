@@ -112,6 +112,9 @@ public class Client {
 							System.out.println("Message mottaget från server: " + message.getMsg());
 							controller.showMessageInClientGUI(message.getMsg());
 							break;
+						case 2: //Bildmeddelande
+							controller.showImageInClientGUI(message.getImage());
+							break;
 						case 3: //Uppdatering av clientList
 							System.out.println("Fick clientlist från server");
 							controller.updateClientList(message.getClientList());

@@ -3,12 +3,17 @@ package server;
 import message.Message;
 
 import javax.swing.*;
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 /**
  * Klassen Server har metoder och inre klasser som tillåter flera anslutna
@@ -34,6 +39,15 @@ public class Server {
         this.port = port;
         System.out.println("Server is now online.");
         ConnectionListener cl = new ConnectionListener();
+        File dir = new File ("tmp/test");
+        dir.mkdirs();
+        File tmp = new File (dir, "MyLogFile.log");
+        try {
+            tmp.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 //		clientList = new ArrayList<ClientInstance>();
 //		clientNameList = new ArrayList<String>();
         cl.start();
@@ -47,6 +61,26 @@ public class Server {
         frame.setVisible(true);
     }
 
+    public void addToLog(String event){
+        Logger logger = Logger.getLogger("MyLog");
+        FileHandler fh;
+        try {
+            // This block configure the logger with handler and formatter
+//            fh = new FileHandler("C:/tempLOGCHAT/MyLogFile.log", true);
+            fh = new FileHandler("tmp/test//MyLogFile.log", true);
+            logger.addHandler(fh);
+            SimpleFormatter formatter = new SimpleFormatter();
+            fh.setFormatter(formatter);
+            // the following statement is used to log any messages
+            logger.info(event);
+            fh.close();
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * Skickar argumentet Message till alla anslutna klienter.
      *
@@ -54,6 +88,15 @@ public class Server {
      */
     public synchronized void broadcastMessage(Message msg) { //synchronized?
 
+//        ArrayList<String> recipients = msg.getRecipients();
+//        String sender = recipients.get(recipients.size()-1);
+        if (msg.getType()==1){
+
+        addToLog(msg.getMsg());
+        } else if (msg.getType()==2){
+//            System.out.println(msg.getImage().getDescription());
+            addToLog("User sent an image file: " + msg.getImage().getDescription());
+        }
         if (msg.getRecipients().get(0).equals("all")){
             for (String key : clients.getKeys()){
                 System.out.println("Skrev msg till user:" + key);
@@ -79,36 +122,8 @@ public class Server {
             clients.get(key).writeMessage(new Message(clientName + " Disconnected.\n", remainingClients, 1));
             clients.get(key).writeMessage(new Message(remainingClients));
         }
+        addToLog(clientName + " disconnected.");
     }
-
-
-/**
- * Kollar igenom listan som håller klient-trådar och ser till att listan med
- * användarnamn stämmer överrens.
- *
- * @param userNameToEdit
- * Användarnamnet som ska läggas in eller tas bort från listan.
- */
-    /*private void updateClientList(String userNameToEdit) {
-        boolean foundClient = false;
-		for (int i = 0; i < clientList.size(); i++) {
-			if (clientList.get(i).userName.equals(userNameToEdit)) {
-				clientNameList.add(userNameToEdit);
-				foundClient = true;
-			}
-		}
-		// Om namnet inte fanns i listan för klienttrådar så ska den tas bort
-		// från klientnamnlistan.
-		if (!foundClient) {
-			for (int i = 0; i < clientNameList.size(); i++) {
-				if (clientNameList.get(i).equals(userNameToEdit)) {
-					clientNameList.remove(i);
-					i--;
-				}
-			}
-		}
-
-	}*/
 
     /**
      * Lyssnar efter nya anslutningar. När en klient ansluter binds den till en
@@ -138,12 +153,7 @@ public class Server {
                         clients.get(key).writeMessage(new Message(connectedClients));
                         System.out.println("From client list: " + key);
                     }
-//					System.out.println(cl.userName+" connected");
-//                    ArrayList<String> tempToAll = new ArrayList<String>(1);
-//                    tempToAll.add("all");
-//					broadcastMessage(new Message(cl.userName + " connected.\n", tempToAll));
-//					updateClientList(cl.userName);
-//					broadcastMessage(new Message(clientNameList, tempToAll));
+                    addToLog(clientName + " connected.");
                 }
             } catch (Exception e) {
             }

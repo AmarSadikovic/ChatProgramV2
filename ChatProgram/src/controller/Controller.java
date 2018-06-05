@@ -5,6 +5,8 @@ import client.ClientGUI;
 import message.Message;
 
 import javax.swing.*;
+import java.awt.*;
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -31,11 +33,12 @@ public class Controller {
      *
      */
 	public void showClientGUI() {
-		frame = new JFrame("Chat");
+		frame = new JFrame("Chat - Not connected.");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(clientGUI);
 		frame.pack();
 		frame.setVisible(true);
+//		frame.setTitle("TEST");
 	}
 
     public void showMessageInClientGUI (String msg){
@@ -70,8 +73,13 @@ public class Controller {
      * filepath
      *            Sökvägen till den fil som valdes i klientens GUI.
      */
-    /*public void makeImage(String filepath, String recipients) {
-        ImageIcon image = new ImageIcon(filepath);
+    public void makeImage(String filepath, String recipients) {
+		File file = new File (filepath);
+		String fileName = file.getName();
+		ImageIcon image = new ImageIcon(filepath);
+		Image imagefile = image.getImage();
+		imagefile = imagefile.getScaledInstance(120, 120, Image.SCALE_SMOOTH);
+		image = new ImageIcon(imagefile, fileName);
         ArrayList<String> recipientsList = new ArrayList<>();
         if (recipients.equals("")){
             recipientsList.add("all");
@@ -81,7 +89,7 @@ public class Controller {
             recipientsList.add(client.getUserName());
         }
         client.sendMessage(new Message(image, recipientsList));
-    }*/
+    }
 
     public void showImageInClientGUI (ImageIcon image){
         clientGUI.showImage(image);
@@ -127,6 +135,7 @@ public class Controller {
      */
 	public void connect(String userName) {
 		client.setUserName(userName);
+		frame.setTitle("Chat - Connected as " + userName);
         client.connect((String) JOptionPane.showInputDialog(frame,
                 "Enter server IP",
                 "Server IP\n", JOptionPane.OK_CANCEL_OPTION, null,
@@ -138,6 +147,7 @@ public class Controller {
      */
 	public void disconnect() {
 		client.disconnect();
+		frame.setTitle("Chat - Not connected.");
 	}
 
 }

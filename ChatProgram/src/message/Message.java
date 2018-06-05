@@ -35,11 +35,11 @@ public class Message implements Serializable{
      * Denna konstruktorn används när ett bildmeddelande skickas.
      * @param image Bilden som ska skickas.
      */
-    /*public Message (ImageIcon image, Set<String> recipients){
+    public Message (ImageIcon image, ArrayList<String> recipients){
         this.image=image;
         this.recipients=recipients;
         msgType=2;
-    }*/
+    }
 	
 	/**
 	 * Denna konstruktorn används endast för att skicka en lista av anslutna klienter, från servern till klienterna.
