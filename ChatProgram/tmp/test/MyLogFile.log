@@ -1,0 +1,125 @@
+jun 07, 2018 10:37:38 FM server.Server addToLog
+INFO: Pappa connected.
+jun 07, 2018 10:37:43 FM server.Server addToLog
+INFO: Pappa disconnected.
+jun 07, 2018 11:11:49 FM server.Server addToLog
+INFO: Pottato connected.
+jun 07, 2018 11:12:02 FM server.Server addToLog
+INFO: To connected.
+jun 07, 2018 11:12:20 FM server.Server addToLog
+INFO: [11:12] <Pottato> dadasdwa
+
+jun 07, 2018 11:12:31 FM server.Server addToLog
+INFO: [11:12] <Pottato> d21e1
+
+jun 07, 2018 11:12:40 FM server.Server addToLog
+INFO: To disconnected.
+jun 07, 2018 11:12:42 FM server.Server addToLog
+INFO: [11:12] <Pottato> Test Disconnect
+
+jun 07, 2018 11:12:55 FM server.Server addToLog
+INFO: To connected.
+jun 07, 2018 11:13:05 FM server.Server addToLog
+INFO: [11:13] <Pottato> 123
+
+jun 07, 2018 11:13:22 FM server.Server addToLog
+INFO: [11:13] <Pottato> dw
+
+jun 07, 2018 11:14:20 FM server.Server addToLog
+INFO: To disconnected.
+jun 07, 2018 11:14:21 FM server.Server addToLog
+INFO: Pottato disconnected.
+jun 07, 2018 11:16:07 FM server.Server addToLog
+INFO: Pottetor connected.
+jun 07, 2018 11:16:13 FM server.Server addToLog
+INFO: Abc connected.
+jun 07, 2018 11:16:15 FM server.Server addToLog
+INFO: [11:16] <Pottetor> 123
+
+jun 07, 2018 11:16:21 FM server.Server addToLog
+INFO: [11:16] <Pottetor> 3
+
+jun 07, 2018 11:16:27 FM server.Server addToLog
+INFO: Abc disconnected.
+jun 07, 2018 11:16:30 FM server.Server addToLog
+INFO: [11:16] <Pottetor> Test DC
+
+jun 07, 2018 11:16:41 FM server.Server addToLog
+INFO: Abc connected.
+jun 07, 2018 11:16:46 FM server.Server addToLog
+INFO: [11:16] <Pottetor> da
+
+jun 07, 2018 11:16:51 FM server.Server addToLog
+INFO: [11:16] <Pottetor> da
+
+jun 07, 2018 11:17:56 FM server.Server addToLog
+INFO: Abc disconnected.
+jun 07, 2018 11:17:57 FM server.Server addToLog
+INFO: Pottetor disconnected.
+jun 07, 2018 11:18:27 FM server.Server addToLog
+INFO: Test connected.
+jun 07, 2018 11:18:40 FM server.Server addToLog
+INFO: [11:18] <Test> 123TestDc
+
+jun 07, 2018 11:19:04 FM server.Server addToLog
+INFO: Abc connected.
+jun 07, 2018 11:19:55 FM server.Server addToLog
+INFO: Abc disconnected.
+jun 07, 2018 11:19:56 FM server.Server addToLog
+INFO: Test disconnected.
+jun 07, 2018 11:20:20 FM server.Server addToLog
+INFO: Test connected.
+jun 07, 2018 11:20:52 FM server.Server addToLog
+INFO: Test disconnected.
+jun 07, 2018 11:21:06 FM server.Server addToLog
+INFO: ad connected.
+jun 07, 2018 11:21:18 FM server.Server addToLog
+INFO: ad disconnected.
+jun 07, 2018 11:21:27 FM server.Server addToLog
+INFO: abc connected.
+jun 07, 2018 11:21:34 FM server.Server addToLog
+INFO: abc disconnected.
+jun 07, 2018 11:21:51 FM server.Server addToLog
+INFO: adc connected.
+jun 07, 2018 11:22:30 FM server.Server addToLog
+INFO: adc disconnected.
+jun 07, 2018 11:23:27 FM server.Server addToLog
+INFO: Potter connected.
+jun 07, 2018 11:23:36 FM server.Server addToLog
+INFO: Potter disconnected.
+jun 07, 2018 11:25:11 FM server.Server addToLog
+INFO: Swagger connected.
+jun 07, 2018 11:25:20 FM server.Server addToLog
+INFO: 123 connected.
+jun 07, 2018 11:25:29 FM server.Server addToLog
+INFO: [11:25] <Swagger> aadc
+
+jun 07, 2018 11:25:32 FM server.Server addToLog
+INFO: 123 disconnected.
+jun 07, 2018 11:25:37 FM server.Server addToLog
+INFO: 123 connected.
+jun 07, 2018 11:25:40 FM server.Server addToLog
+INFO: [11:25] <Swagger> 321
+
+jun 07, 2018 11:25:42 FM server.Server addToLog
+INFO: Swagger disconnected.
+jun 07, 2018 11:25:44 FM server.Server addToLog
+INFO: 123 disconnected.
+jun 07, 2018 11:27:37 FM server.Server addToLog
+INFO: Potteter connected.
+jun 07, 2018 11:27:54 FM server.Server addToLog
+INFO: Petter connected.
+jun 07, 2018 11:28:12 FM server.Server addToLog
+INFO: [11:28] <Potteter> Swer
+
+jun 07, 2018 11:28:17 FM server.Server addToLog
+INFO: Petter disconnected.
+jun 07, 2018 11:28:21 FM server.Server addToLog
+INFO: [11:28] <Potteter> 123
+
+jun 07, 2018 11:28:34 FM server.Server addToLog
+INFO: Petter connected.
+jun 07, 2018 11:28:37 FM server.Server addToLog
+INFO: Petter disconnected.
+jun 07, 2018 11:28:40 FM server.Server addToLog
+INFO: Potteter disconnected.

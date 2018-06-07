@@ -126,7 +126,7 @@ public class Controller {
 		String res;
 		cal = Calendar.getInstance();
 		res = "[" + sdf.format(cal.getTime()) + "] " + "<"+client.getUserName()+"> "+ msg+"\n";
-		client.sendMessage(new Message(res, recipients, 1));
+		client.sendMessage(new Message(client.getUserName(), res, recipients, 1));
 	}
 
     /**

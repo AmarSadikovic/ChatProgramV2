@@ -15,17 +15,19 @@ public class Message implements Serializable{
 	
 	
 	private static final long serialVersionUID = 1L;
-	private String message;
+	private String message, userName;
 	private ArrayList<String> recipients, clientList;
 	public static final int TEXT=1, PICTURE=2, CLIENTNAMELIST=3;
 	private int msgType;
 	private ImageIcon image;
+	
 
 	/**
 	 * Standard-konstruktorn för vanliga textmeddelanden.
 	 * @param message Det textmeddelande som ska skickas.
 	 */
-	public Message (String message, ArrayList<String> recipients, int operation){
+	public Message (String userName, String message, ArrayList<String> recipients, int operation){
+		this.userName = userName;
 		this.message = message;
 		this.recipients = recipients;
 		this.msgType=operation;
@@ -70,4 +72,7 @@ public class Message implements Serializable{
 		return msgType;
 	}
 
+	public String getUserName() {
+		return userName;
+	}
 }
