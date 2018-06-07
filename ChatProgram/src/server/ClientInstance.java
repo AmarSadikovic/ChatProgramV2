@@ -35,7 +35,6 @@ class ClientInstance extends Thread {
 		this.socket = socket;
 		this.clientName = clientName;
 		this.server = server;
-		checkQueuedMessages();
 		try {
 			this.ois = ois;
 			this.oos = oos;
@@ -43,11 +42,11 @@ class ClientInstance extends Thread {
 			// ois = new ObjectInputStream(socket.getInputStream());
 		} catch (Exception e) {
 		}
+		checkQueuedMessages();
 		start();
 	}
 
 	public void checkQueuedMessages() {
-		System.out.println("GGGGGGGGGGGGEEEEEEEEEEEEETTTTTTTTTTT QUQUEDMESSAGE");
 		HashMap<String, ArrayList<Message>> map = server.getQueuedMessages();
 		if (map.containsKey(clientName)) {
 			ArrayList<Message> temp = map.get(clientName);

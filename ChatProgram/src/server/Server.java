@@ -12,6 +12,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
@@ -40,7 +41,7 @@ public class Server {
 		showServerGUI();
 		this.port = port;
 		System.out.println("Server is now online.");
-		queuedMessages = new HashMap<String, ArrayList<Message>>();
+		queuedMessages = new HashMap<>();
 		ConnectionListener cl = new ConnectionListener();
 		File dir = new File("tmp/test");
 		dir.mkdirs();
@@ -130,19 +131,19 @@ public class Server {
 	}
 
 	public void queueMessage(Message msg) {
-		ArrayList<String> recipiants = msg.getRecipients();
-		for (String key : clients.getKeys()) {
-			for (String s : recipiants) {
-				if (!s.equals(key)) {
-					if (queuedMessages.containsKey(key)) {
-						ArrayList<Message> temp = queuedMessages.get(key);
-						temp.add(msg);
-						queuedMessages.replace(key, temp);
-					} else {
-						ArrayList<Message> temp = new ArrayList<>();
-						temp.add(msg);
-						queuedMessages.put(key, temp);
-					}
+		ArrayList<String> recipients = msg.getRecipients();
+		Set<String> connectedClients = clients.getKeys();
+		ArrayList<Message> messageQueue;
+		for (String client : recipients){
+			if (!connectedClients.contains(client)){
+				if (queuedMessages.containsKey(client)){
+					messageQueue = queuedMessages.remove(client);
+					messageQueue.add(msg);
+					queuedMessages.put(client, messageQueue);
+				} else {
+					messageQueue = new ArrayList<>();
+				messageQueue.add(msg);
+				queuedMessages.put(client, messageQueue);
 				}
 			}
 		}
