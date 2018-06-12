@@ -123,3 +123,19 @@ jun 07, 2018 11:28:37 FM server.Server addToLog
 INFO: Petter disconnected.
 jun 07, 2018 11:28:40 FM server.Server addToLog
 INFO: Potteter disconnected.
+jun 12, 2018 10:55:03 FM server.Server addToLog
+INFO: Amar connected.
+jun 12, 2018 10:55:19 FM server.Server addToLog
+INFO: [10:55] <Amar> Hej
+
+jun 12, 2018 10:56:27 FM server.Server addToLog
+INFO: Amar connected.
+jun 12, 2018 10:56:33 FM server.Server addToLog
+INFO: [10:56] <Amar> Hej
+
+jun 12, 2018 10:56:38 FM server.Server addToLog
+INFO: Koffe connected.
+jun 12, 2018 10:56:46 FM server.Server addToLog
+INFO: Koffe disconnected.
+jun 12, 2018 10:56:47 FM server.Server addToLog
+INFO: Amar disconnected.

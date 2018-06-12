@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.2" icons="true" generate-combined-fragments="true">  
+  <object id="1" language="java" name="server.ClientInstance" project="ChatProgram" 
+    file="/ChatProgram/src/server/ClientInstance.java" binary="false" label="clientInstance" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="2">      
+      <position height="441" width="0" x="0" y="94"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="378" width="0" x="0" y="136"/>    
+    </execution>  
+  </object>  
+  <object id="11" language="java" name="java.io.ObjectInputStream" project="ChatProgram" 
+    file="C:/Program Files/Java/jre1.8.0_171/lib/rt.jar" binary="true" label="ois" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="6">      
+      <position height="21" width="0" x="0" y="195"/>    
+    </execution>  
+  </object>  
+  <object id="12" language="java" name="server.Server" project="ChatProgram" file="/ChatProgram/src/server/Server.java" 
+    binary="false" label="server" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="8">      
+      <position height="21" width="0" x="0" y="355"/>    
+    </execution>    
+    <execution id="10">      
+      <position height="21" width="0" x="0" y="472"/>    
+    </execution>  
+  </object>  
+  <combined-fragment id="13" interaction-operator="LOOP">    
+    <interaction-operand id="14" constraint="while: !socket.isClosed()">      
+      <fragment refId="15"/>      
+      <fragment refId="16"/>      
+      <fragment refId="5"/>    
+    </interaction-operand>    
+    <combined-fragment id="15" interaction-operator="ALT">      
+      <interaction-operand id="17" constraint="case 1:">        
+        <fragment refId="18"/>      
+      </interaction-operand>      
+      <interaction-operand id="19" constraint="case 2:">        
+        <fragment refId="20"/>      
+      </interaction-operand>      
+      <interaction-operand id="21" constraint="default:"/>      
+      <combined-fragment id="18" interaction-operator="CRITICAL">        
+        <interaction-operand id="22">          
+          <fragment refId="7"/>        
+        </interaction-operand>      
+      </combined-fragment>      
+      <combined-fragment id="20" interaction-operator="CRITICAL">        
+        <interaction-operand id="23">          
+          <fragment refId="9"/>        
+        </interaction-operand>      
+      </combined-fragment>    
+    </combined-fragment>  
+  </combined-fragment>  
+  <message id="3" operation="run():void" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="readObject():java.lang.Object" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="7" operation="broadcastMessage(message.Message):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>  
+  <message id="9" operation="broadcastMessage(message.Message):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>
+</sequence-diagram>

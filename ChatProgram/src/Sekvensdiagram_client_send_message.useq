@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.2" icons="true" generate-combined-fragments="true">  
+  <object id="1" language="java" name="client.ClientGUI" project="ChatProgram" 
+    file="/ChatProgram/src/client/ClientGUI.java" binary="false" label="clientGUI" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="108" y="0"/>    
+    <execution id="2">      
+      <position height="1504" width="0" x="0" y="90"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="1441" width="0" x="0" y="132"/>    
+    </execution>  
+  </object>  
+  <object id="23" language="java" name="controller.Controller" project="ChatProgram" 
+    file="/ChatProgram/src/controller/Controller.java" binary="false" label="controller" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="6">      
+      <position height="740" width="0" x="0" y="219"/>    
+    </execution>    
+    <execution id="18">      
+      <position height="21" width="0" x="0" y="1450"/>    
+    </execution>    
+    <execution id="35">      
+      <position height="382" width="0" x="0" y="556"/>    
+    </execution>  
+  </object>  
+  <object id="42" language="java" name="message.Message" project="ChatProgram" 
+    file="/ChatProgram/src/message/Message.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="41">      
+      <position height="21" width="0" x="0" y="896"/>    
+    </execution>  
+  </object>  
+  <object id="43" language="java" name="java.util.ArrayList" project="ChatProgram" 
+    file="C:/Program Files/Java/jre1.8.0_171/lib/rt.jar" binary="true" label="recipientsList" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="25">      
+      <position height="21" width="0" x="0" y="240"/>    
+    </execution>    
+    <execution id="27">      
+      <position height="21" width="0" x="0" y="320"/>    
+    </execution>    
+    <execution id="31">      
+      <position height="21" width="0" x="0" y="441"/>    
+    </execution>  
+  </object>  
+  <object id="44" language="java" name="java.util.Collections" project="ChatProgram" 
+    file="C:/Program Files/Java/jre1.8.0_171/lib/rt.jar" binary="true" label="&lt;static&gt;" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="29">      
+      <position height="21" width="0" x="0" y="399"/>    
+    </execution>  
+  </object>  
+  <object id="45" language="java" name="client.Client" project="ChatProgram" file="/ChatProgram/src/client/Client.java" 
+    binary="false" label="client" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="33">      
+      <position height="21" width="0" x="0" y="483"/>    
+    </execution>    
+    <execution id="37">      
+      <position height="21" width="0" x="0" y="602"/>    
+    </execution>    
+    <execution id="39">      
+      <position height="231" width="0" x="0" y="644"/>    
+    </execution>  
+  </object>  
+  <object id="56" language="java" name="message.Message" project="ChatProgram" 
+    file="/ChatProgram/src/message/Message.java" binary="false" label="msg" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="47">      
+      <position height="21" width="0" x="0" y="665"/>    
+    </execution>  
+  </object>  
+  <object id="57" language="java" name="java.io.PrintStream" project="ChatProgram" 
+    file="C:/Program Files/Java/jre1.8.0_171/lib/rt.jar" binary="true" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="49">      
+      <position height="21" width="0" x="0" y="707"/>    
+    </execution>  
+  </object>  
+  <object id="58" language="java" name="java.io.ObjectOutputStream" project="ChatProgram" 
+    file="C:/Program Files/Java/jre1.8.0_171/lib/rt.jar" binary="true" label="oos" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="51">      
+      <position height="21" width="0" x="0" y="749"/>    
+    </execution>    
+    <execution id="53">      
+      <position height="21" width="0" x="0" y="791"/>    
+    </execution>    
+    <execution id="55">      
+      <position height="21" width="0" x="0" y="833"/>    
+    </execution>  
+  </object>  
+  <object id="59" language="java" name="javax.swing.text.JTextComponent" project="ChatProgram" 
+    file="C:/Program Files/Java/jre1.8.0_171/lib/rt.jar" binary="true" label="taInput" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="8">      
+      <position height="21" width="0" x="0" y="980"/>    
+    </execution>    
+    <execution id="12">      
+      <position height="21" width="0" x="0" y="1074"/>    
+    </execution>  
+  </object>  
+  <object id="60" language="java" name="javax.swing.text.JTextComponent" project="ChatProgram" 
+    file="C:/Program Files/Java/jre1.8.0_171/lib/rt.jar" binary="true" label="taNameInput" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="10">      
+      <position height="21" width="0" x="0" y="1022"/>    
+    </execution>    
+    <execution id="22">      
+      <position height="21" width="0" x="0" y="1531"/>    
+    </execution>  
+  </object>  
+  <object id="61" language="java" name="javax.swing.JFileChooser" project="ChatProgram" 
+    file="C:/Program Files/Java/jre1.8.0_171/lib/rt.jar" binary="true" label="fc" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="14">      
+      <position height="21" width="0" x="0" y="1274"/>    
+    </execution>    
+    <execution id="16">      
+      <position height="21" width="0" x="0" y="1408"/>    
+    </execution>  
+  </object>  
+  <object id="62" language="java" name="java.io.File" project="ChatProgram" 
+    file="C:/Program Files/Java/jre1.8.0_171/lib/rt.jar" binary="true" label="file" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="20">      
+      <position height="21" width="0" x="0" y="1492"/>    
+    </execution>  
+  </object>  
+  <combined-fragment id="63" interaction-operator="ALT">    
+    <interaction-operand id="64" constraint="e.getSource() == btnSkicka">      
+      <fragment refId="65"/>      
+      <fragment refId="66"/>      
+      <fragment refId="11"/>    
+    </interaction-operand>    
+    <combined-fragment id="66" interaction-operator="OPT">      
+      <interaction-operand id="67" constraint="taInput.getText().length() != 0">        
+        <fragment refId="40"/>        
+        <fragment refId="50"/>        
+        <fragment refId="24"/>        
+        <fragment refId="52"/>        
+        <fragment refId="5"/>        
+        <fragment refId="7"/>        
+        <fragment refId="36"/>        
+        <fragment refId="9"/>        
+        <fragment refId="46"/>        
+        <fragment refId="48"/>        
+        <fragment refId="34"/>        
+        <fragment refId="38"/>        
+        <fragment refId="54"/>        
+        <fragment refId="68"/>      
+      </interaction-operand>      
+      <combined-fragment id="68" interaction-operator="ALT">        
+        <interaction-operand id="69" constraint="recipients.equals(&quot;&quot;)">          
+          <fragment refId="26"/>        
+        </interaction-operand>        
+        <interaction-operand id="70" constraint="else">          
+          <fragment refId="32"/>          
+          <fragment refId="28"/>          
+          <fragment refId="30"/>        
+        </interaction-operand>      
+      </combined-fragment>    
+    </combined-fragment>    
+    <combined-fragment id="65" interaction-operator="OPT">      
+      <interaction-operand id="71" constraint="e.getSource() == btnBild">        
+        <fragment refId="72"/>        
+        <fragment refId="13"/>      
+      </interaction-operand>      
+      <combined-fragment id="72" interaction-operator="OPT">        
+        <interaction-operand id="73" constraint="returnVal == JFileChooser.APPROVE_OPTION">          
+          <fragment refId="15"/>          
+          <fragment refId="21"/>          
+          <fragment refId="19"/>          
+          <fragment refId="17"/>        
+        </interaction-operand>      
+      </combined-fragment>    
+    </combined-fragment>  
+  </combined-fragment>  
+  <message id="3" operation="actionPerformed(java.awt.event.ActionEvent):void" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="defineRecipients(java.lang.String,java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="7" operation="getText():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>  
+  <message id="9" operation="getText():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="setText(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13" operation="showOpenDialog(java.awt.Component):int" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="15" operation="getSelectedFile():java.io.File" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="17" operation="makeImage(java.lang.String,java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="19" operation="getPath():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="21" operation="getText():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>  
+  <message id="24" operation="ArrayList()" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="25"/>  
+  </message>  
+  <message id="26" operation="add(E):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="27"/>  
+  </message>  
+  <message id="28" operation="addAll(java.util.Collection&lt;? super T&gt;,T[]):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="29"/>  
+  </message>  
+  <message id="30" operation="add(E):boolean" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="31"/>  
+  </message>  
+  <message id="32" operation="getUserName():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="33"/>  
+  </message>  
+  <message id="34" operation="constructMessage(java.lang.String,java.util.ArrayList&lt;java.lang.String&gt;):void" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="35"/>  
+  </message>  
+  <message id="36" operation="getUserName():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="37"/>  
+  </message>  
+  <message id="38" operation="sendMessage(message.Message):void" asynchronous="false">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="39"/>  
+  </message>  
+  <message id="40" 
+    operation="Message(java.lang.String,java.lang.String,java.util.ArrayList&lt;java.lang.String&gt;,int)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="41"/>  
+  </message>  
+  <message id="46" operation="getType():int" asynchronous="false">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="47"/>  
+  </message>  
+  <message id="48" operation="println(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="49"/>  
+  </message>  
+  <message id="50" operation="writeObject(java.lang.Object):void" asynchronous="false">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="51"/>  
+  </message>  
+  <message id="52" operation="flush():void" asynchronous="false">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="53"/>  
+  </message>  
+  <message id="54" operation="reset():void" asynchronous="false">    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="55"/>  
+  </message>
+</sequence-diagram>
