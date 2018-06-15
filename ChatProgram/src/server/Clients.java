@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Set;
 
 /**
- * Created by Kristofer Svensson & Amar Sadikovic on 2017-10-06.
+ * @author Kristofer Svensson, Amar Sadikovic
  */
 public class Clients {
 

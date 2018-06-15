@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.2" icons="true" generate-combined-fragments="true">  
+  <object id="1" language="java" name="server.Server.ConnectionListener" project="ChatProgram" 
+    file="/ChatProgram/src/server/Server.java" binary="false" label="connectionListener" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="80" y="0"/>    
+    <execution id="2">      
+      <position height="590" width="0" x="0" y="81"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="527" width="0" x="0" y="123"/>    
+    </execution>  
+  </object>  
+  <object id="25" language="java" name="java.util.ArrayList" project="ChatProgram" 
+    file="C:/Program Files/Java/jre1.8.0_171/lib/rt.jar" binary="true" label="connectedClients" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="6">      
+      <position height="21" width="0" x="0" y="154"/>    
+    </execution>  
+  </object>  
+  <object id="26" language="java" name="java.net.ServerSocket" project="ChatProgram" 
+    file="C:/Program Files/Java/jre1.8.0_171/lib/rt.jar" binary="true" label="serverSocket" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="8">      
+      <position height="21" width="0" x="0" y="196"/>    
+    </execution>    
+    <execution id="10">      
+      <position height="21" width="0" x="0" y="276"/>    
+    </execution>  
+  </object>  
+  <object id="27" language="java" name="java.io.ObjectOutputStream" project="ChatProgram" 
+    file="C:/Program Files/Java/jre1.8.0_171/lib/rt.jar" binary="true" label="oos" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="12">      
+      <position height="21" width="0" x="0" y="318"/>    
+    </execution>  
+  </object>  
+  <object id="28" language="java" name="java.net.Socket" project="ChatProgram" 
+    file="C:/Program Files/Java/jre1.8.0_171/lib/rt.jar" binary="true" label="clientSocket" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="14">      
+      <position height="21" width="0" x="0" y="360"/>    
+    </execution>    
+    <execution id="18">      
+      <position height="21" width="0" x="0" y="444"/>    
+    </execution>  
+  </object>  
+  <object id="29" language="java" name="java.io.ObjectInputStream" project="ChatProgram" 
+    file="C:/Program Files/Java/jre1.8.0_171/lib/rt.jar" binary="true" label="ois" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="16">      
+      <position height="21" width="0" x="0" y="402"/>    
+    </execution>    
+    <execution id="20">      
+      <position height="21" width="0" x="0" y="486"/>    
+    </execution>  
+  </object>  
+  <object id="30" language="java" name="server.Clients" project="ChatProgram" 
+    file="/ChatProgram/src/server/Clients.java" binary="false" label="clients" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="22">      
+      <position height="21" width="0" x="0" y="566"/>    
+    </execution>  
+  </object>  
+  <object id="31" language="java" name="server.ClientInstance" project="ChatProgram" 
+    file="/ChatProgram/src/server/ClientInstance.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="24">      
+      <position height="21" width="0" x="0" y="608"/>    
+    </execution>  
+  </object>  
+  <combined-fragment id="32" interaction-operator="LOOP">    
+    <interaction-operand id="33" constraint="while: true">      
+      <fragment refId="17"/>      
+      <fragment refId="15"/>      
+      <fragment refId="34"/>      
+      <fragment refId="11"/>      
+      <fragment refId="13"/>      
+      <fragment refId="9"/>      
+      <fragment refId="19"/>    
+    </interaction-operand>    
+    <combined-fragment id="34" interaction-operator="CRITICAL">      
+      <interaction-operand id="35">        
+        <fragment refId="21"/>        
+        <fragment refId="23"/>      
+      </interaction-operand>    
+    </combined-fragment>  
+  </combined-fragment>  
+  <message id="3" operation="run():void" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="ArrayList()" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="7" operation="ServerSocket(int)" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>  
+  <message id="9" operation="accept():java.net.Socket" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="ObjectOutputStream(java.io.OutputStream)" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13" operation="getOutputStream():java.io.OutputStream" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="15" operation="ObjectInputStream(java.io.InputStream)" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="17" operation="getInputStream():java.io.InputStream" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="19" operation="readUTF():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="21" operation="addClient(server.ClientInstance):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>  
+  <message id="23" 
+    operation="ClientInstance(java.lang.String,java.net.Socket,java.io.ObjectInputStream,java.io.ObjectOutputStream,server.Server)" 
+    asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="24"/>  
+  </message>
+</sequence-diagram>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.2" icons="true" generate-combined-fragments="true">  
+  <object id="1" language="java" name="client.Client.messageListener" project="ChatProgram" 
+    file="/ChatProgram/src/client/Client.java" binary="false" label="messageListener" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="2">      
+      <position height="606" width="0" x="0" y="83"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="543" width="0" x="0" y="125"/>    
+    </execution>  
+  </object>  
+  <object id="19" language="java" name="java.io.ObjectInputStream" project="ChatProgram" 
+    file="C:/Program Files/Java/jre1.8.0_171/lib/rt.jar" binary="true" label="ois" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="6">      
+      <position height="21" width="0" x="0" y="184"/>    
+    </execution>  
+  </object>  
+  <object id="20" language="java" name="message.Message" project="ChatProgram" 
+    file="/ChatProgram/src/message/Message.java" binary="false" label="message" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="10">      
+      <position height="21" width="0" x="0" y="342"/>    
+    </execution>    
+    <execution id="14">      
+      <position height="21" width="0" x="0" y="463"/>    
+    </execution>    
+    <execution id="18">      
+      <position height="21" width="0" x="0" y="626"/>    
+    </execution>  
+  </object>  
+  <object id="21" language="java" name="controller.Controller" project="ChatProgram" 
+    file="/ChatProgram/src/controller/Controller.java" binary="false" label="controller" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="8">      
+      <position height="21" width="0" x="0" y="300"/>    
+    </execution>    
+    <execution id="12">      
+      <position height="21" width="0" x="0" y="421"/>    
+    </execution>    
+    <execution id="16">      
+      <position height="21" width="0" x="0" y="584"/>    
+    </execution>  
+  </object>  
+  <combined-fragment id="22" interaction-operator="LOOP">    
+    <interaction-operand id="23" constraint="while: true">      
+      <fragment refId="5"/>      
+      <fragment refId="24"/>    
+    </interaction-operand>    
+    <combined-fragment id="24" interaction-operator="ALT">      
+      <interaction-operand id="25" constraint="case 1:">        
+        <fragment refId="9"/>        
+        <fragment refId="7"/>      
+      </interaction-operand>      
+      <interaction-operand id="26" constraint="case 2:">        
+        <fragment refId="11"/>        
+        <fragment refId="13"/>      
+      </interaction-operand>      
+      <interaction-operand id="27" constraint="case 3:">        
+        <fragment refId="17"/>        
+        <fragment refId="15"/>      
+      </interaction-operand>      
+      <interaction-operand id="28" constraint="default:"/>    
+    </combined-fragment>  
+  </combined-fragment>  
+  <message id="3" operation="run():void" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="readObject():java.lang.Object" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="7" operation="showMessageInClientGUI(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>  
+  <message id="9" operation="getMsg():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="showImageInClientGUI(javax.swing.ImageIcon):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13" operation="getImage():javax.swing.ImageIcon" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="15" operation="updateClientList(java.util.ArrayList&lt;java.lang.String&gt;):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="17" operation="getClientList():java.util.ArrayList&lt;String&gt;" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>
+</sequence-diagram>

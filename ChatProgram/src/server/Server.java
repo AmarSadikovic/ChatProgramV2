@@ -3,7 +3,6 @@ package server;
 import message.Message;
 
 import javax.swing.*;
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -12,7 +11,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Set;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
@@ -30,8 +28,6 @@ public class Server {
     private int port;
     private ServerGUI serverGUI;
     private Clients clients;
-    // private ArrayList<ClientInstance> clientList;
-    // private ArrayList<String> clientNameList;
     private Message message;
     private HashMap<String, ArrayList<Message>> queuedMessages;
 
@@ -51,9 +47,6 @@ public class Server {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        // clientList = new ArrayList<ClientInstance>();
-        // clientNameList = new ArrayList<String>();
         cl.start();
     }
 
@@ -69,13 +62,10 @@ public class Server {
         Logger logger = Logger.getLogger("MyLog");
         FileHandler fh;
         try {
-            // This block configure the logger with handler and formatter
-            // fh = new FileHandler("C:/tempLOGCHAT/MyLogFile.log", true);
             fh = new FileHandler("tmp/test//MyLogFile.log", true);
             logger.addHandler(fh);
             SimpleFormatter formatter = new SimpleFormatter();
             fh.setFormatter(formatter);
-            // the following statement is used to log any messages
             logger.info(event);
             fh.close();
         } catch (SecurityException e) {
@@ -154,7 +144,6 @@ public class Server {
      */
     private class ConnectionListener extends Thread {
         public void run() {
-            // System.out.println("Server is now ready to accept connections.");
             ArrayList<String> connectedClients = new ArrayList<>();
             try {
                 ServerSocket serverSocket = new ServerSocket(port);
@@ -163,7 +152,6 @@ public class Server {
                     ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream());
                     ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream());
                     String clientName = ois.readUTF();
-                    // System.out.println("Namn mottaget: " + clientName);
                     clients.addClient(new ClientInstance(clientName, clientSocket, ois, oos, Server.this));
                     connectedClients.clear();
                     connectedClients.addAll(clients.getKeys());
@@ -171,7 +159,6 @@ public class Server {
                         clients.get(key).writeMessage(
                                 new Message(clientName, clientName + " connected. \n", connectedClients, 1));
                         clients.get(key).writeMessage(new Message(connectedClients));
-                        //System.out.println("From client list: " + key);
                     }
                     addToLog(clientName + " connected.");
                 }

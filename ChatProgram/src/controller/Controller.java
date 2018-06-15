@@ -11,8 +11,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.Set;
 
+/**
+ * Controller klass.
+ *
+ * @author Kristofer Svensson, Amar Sadikovic
+ */
 public class Controller {
 
 	private Client client;
@@ -38,7 +42,6 @@ public class Controller {
 		frame.add(clientGUI);
 		frame.pack();
 		frame.setVisible(true);
-//		frame.setTitle("TEST");
 	}
 
     public void showMessageInClientGUI (String msg){
@@ -55,16 +58,7 @@ public class Controller {
      *            användarnamn.
      */
     public void updateClientList(ArrayList<String> clientListFromServer) {
-		System.out.println("Client:" + client.getUserName() + " User list following:");
-		for (String client: clientListFromServer) {
-			System.out.println("Client: " + client);
-		}
 		clientGUI.updateClientList(clientListFromServer);
-//        clientGUI.clearClientList();
-
-//        for (int i = 0; i < clientListFromServer.size(); i++) {
-//            clientGUI.addToClientList(clientListFromServer.get(i));
-//        }
     }
 
     /**
@@ -106,7 +100,6 @@ public class Controller {
         ArrayList<String> recipientsList = new ArrayList<>();
         if (recipients.equals("")){
             recipientsList.add("all");
-			/*Vad händer om någon heter "all"*/
         } else {
             String[] parts = recipients.split(";");
             Collections.addAll(recipientsList, parts);

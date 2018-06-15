@@ -1,9 +1,5 @@
 package server;
 
-/**
- * Created by Koffe on 2017-10-06.
- */
-
 import message.Message;
 
 import java.io.IOException;
@@ -13,13 +9,12 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.swing.JOptionPane;
 
 /**
  * En tråd som håller reda på en klient. Tar emot klientens skickade data och
  * behandlar den.
  *
- * @author Kristofer Svensson
+ * @author Kristofer Svensson, Amar Sadikovic
  */
 class ClientInstance extends Thread {
 
@@ -38,8 +33,6 @@ class ClientInstance extends Thread {
         try {
             this.ois = ois;
             this.oos = oos;
-            // oos = new ObjectOutputStream(socket.getOutputStream());
-            // ois = new ObjectInputStream(socket.getInputStream());
         } catch (Exception e) {
         }
         checkQueuedMessages();
@@ -67,7 +60,6 @@ class ClientInstance extends Thread {
                 switch (message.getType()) {
                     // case 1 är standard textmeddelande.
                     case 1:
-                        System.out.println("ClientInstance tog emot msg typ 1");
                         server.broadcastMessage(message);
                         break;
                     // case 2 är bildmeddelande.
@@ -85,7 +77,6 @@ class ClientInstance extends Thread {
                 }
             }
         }
-        System.out.println(clientName + " DISCONNECTED");
         server.broadcastDisconnectedClient(clientName);
     }
 
