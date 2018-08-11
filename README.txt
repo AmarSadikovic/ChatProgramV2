@@ -1,4 +1,5 @@
 #Chat program
+==========
 
 ##What is it? 
 - Java Desktop chat application containing UML: Class and Sequence diagrams
