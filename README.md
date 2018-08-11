@@ -1,5 +1,4 @@
 # Chat program
-==========
 
 ## What is it?
 
