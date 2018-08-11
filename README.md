@@ -6,4 +6,7 @@
 
 ## What does it do?
 
-- Clients connect to a server provided by the program and then they are able to chat with each other, sending Strings and images. The messages are sent through streams to the server and the server resends the message to the correct recepient.
+- A client connected to the server can send messages (string or image) to another client that is connected to the same server.
+- message sent/recieved through streams
+
+
